@@ -8,8 +8,8 @@ class Snow : public shape
 private:
 //	SnowFactory* f = new SnowFactory;
 public:
-	Snow();
-	~Snow();
+	Snow(){}
+	~Snow(){}
 	void draw(string type, turtle & _tt);
 };
 

@@ -1,27 +1,16 @@
 #include "Snow.h"
 
 
-
-Snow::Snow()
-{
-}
-
-
-Snow::~Snow()
-{
-	//delete f;
-}
-
 void Snow::draw(string type, turtle & _tt) {
 
 	if (type == "normal") {
-		for (int i = 0; i < 500; i++) {
+		for (int i = 0; i < 50; i++) {
 			NormalSnow nor = NormalSnow(SnowFactory::getParticle("normal"));
 			nor.display(_tt);
 		}
 	}
 	else {
-		for (int i = 0; i < 500; i++) {
+		for (int i = 0; i < 100; i++) {
 			NormalSnow nor = NormalSnow(SnowFactory::getParticle("normal"));
 			nor.display(_tt);
 		}

@@ -23,22 +23,29 @@ Particle* SnowFactory::getParticle(string ty) {
 	}
 }
 
+NormalParticle::NormalParticle() {
+	size = 5.0;
+}
+
 NormalParticle* SnowFactory::npar;
 
 NormalSnow::NormalSnow(Particle* _p) { 
 	par = _p; 
-	x = rand() % 400 +(-200);
-	y = rand() % 200;
-
-	if (x != 0) { x = x / 100; }
-	if (y != 0) { y = y / 100; }
+	x = rand() % 1600 +(-800);
+	y = rand() % 800;
 }
 
 void NormalSnow::display(turtle & _tt){
 	float f = par->getSize();
-	glPointSize(f);
-	glColor3f(0,0,0);
-	glBegin(GL_POINTS);
-	glVertex2f(x, y);
-	glEnd();
+	_tt.pencolor(159, 202, 242);
+	_tt.penup();
+	_tt.turtleGo(x, y);
+	_tt.pendown();
+	//_tt.end();
+	_tt.beginFill();
+	for (int j = 0; j <= 12; j++) {
+		_tt.forwardFill(f);
+		_tt.left(360 / 12);
+	}
+	_tt.end();
 }

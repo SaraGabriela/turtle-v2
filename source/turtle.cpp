@@ -30,27 +30,45 @@ void turtle::start() {
 }
 
 void turtle::setupWindow() {
-	setupWindow(800, 600);
+	setupWindow(680, 680);
 }
 
 void turtle::setupWindow(int a, int b) {
 	glutInitWindowSize(a, b);
-	glutInitWindowPosition(50, 50);
+	glutInitWindowPosition(30, 10);
 	glutCreateWindow("Turtle C++");
 
 	glClearColor(1, 1, 1, 1);
-	glColor3f(0, 0, 0);
-	glLineWidth(3.f);
-	glOrtho(800, 0, 600, 0, -1, 1);
+	glColor3f(0.78, 0.78, 0.78);
+	glLineWidth(2.f);
+	glOrtho(680, 0,680, 0, -1, 1);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT);
+
+	string st = "'a' para dibujar un arbol | 'f' para dibujar una flor | 'n' para dibujar nieve";
+	int i, l;
+	l = st.length();
+	glRasterPos2f(-0.9, 0.9);
+	for (i = 0; i < l; i++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, st[i]);
+	}
+
+	st = "'c' para limpiar la pantalla";
+	l = st.length();
+	glRasterPos2f(-0.9, 0.85);
+	for (i = 0; i < l; i++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, st[i]);
+	}
+	glColor3f(0,0,0);
 }
 
 void turtle::forward(double dis) {
 
 	if (dis != 0) {
-		dis = dis / 100;
+		dis = dis / 800;
 	}
 
 	if (pen) {
@@ -85,10 +103,10 @@ void turtle::pendown() {
 
 void turtle::turtleGo(double x1, double y1) {
 	if (x1 != 0) {
-		x1 = x1 / 100;
+		x1 = x1 / 800;
 	}
 	if (y1 != 0) {
-		y1 = y1 / 100;
+		y1 = y1 / 800;
 	}
 
 	if (pen) {
@@ -107,6 +125,7 @@ void turtle::turtleGo(double x1, double y1) {
 	dir = 0;
 }
 
+
 void turtle::pencolor(float _r, float _g, float _b) {
 	if (_r != 0) { r = _r / 255; }
 	else{ r = _r; }
@@ -118,13 +137,18 @@ void turtle::pencolor(float _r, float _g, float _b) {
 	else { b = _b; }
 }
 
+void turtle::pencolor(color _c) {
+	pencolor(_c.getR(), _c.getG(), _c.getB());
+
+}
+
 void turtle::beginFill() {
 	glBegin(GL_POLYGON);
 }
 
 void turtle::forwardFill(double dis) {
 	if (dis != 0) {
-		dis = dis / 100;
+		dis = dis / 800;
 	}
 
 	glColor3f(r, g, b);

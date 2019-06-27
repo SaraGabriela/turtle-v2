@@ -20,16 +20,10 @@ void TreeBuilder::setTurtleB(turtle _t) { taux = _t; }
 
 void NormalBuilder::getPartsBuild() { treeP = new TreeProduct("Normal Tree"); }
 
-void NormalBuilder::buildHojas() {
-	taux.pencolor(121, 180, 115);
-	taux.right(90);
-	taux.penup();
-	taux.forward(50);
-	taux.pendown();
-	taux.left(90);
-	taux.end();
 
-	float a = 50.0;
+void NormalBuilder::buildHojas() {
+	taux.pencolor(121,180,115);
+	float a = 250;
 	while (a / 2 > 1) {
 		taux.beginFill();
 		taux.forwardFill(a/2);
@@ -45,9 +39,14 @@ void NormalBuilder::buildHojas() {
 		taux.right(90);
 		taux.end();
 
-		a = a - 10;
+		a = a - 50;
 	}
-
+	taux.penup();
+	taux.right(90);
+	taux.forward(380);
+	taux.left(90);
+	taux.forward(10);
+	taux.pendown();
 
 
 	treeP->setHojas("Hojas normales");
@@ -56,17 +55,20 @@ void NormalBuilder::buildHojas() {
 void NormalBuilder::buildTronco() {
 	taux.pencolor(204, 88, 3);
 	taux.penup();
-	taux.turtleGo(0, -50);
+	taux.left(90);
+	taux.forward(100);
+	taux.right(90);
 	taux.pendown();
 	taux.beginFill();
-	taux.forwardFill(7.5);
+	taux.forwardFill(35);
 	taux.right(90);
-	taux.forwardFill(30);
+	taux.forwardFill(100);
 	taux.right(90);
-	taux.forwardFill(15);
+	taux.forwardFill(70);
 	taux.right(90);
-	taux.forwardFill(30);
+	taux.forwardFill(100);
 	taux.right(90);
+	taux.forwardFill(35);
 	taux.end();
 	treeP->setTronco("Tronco normal");
 	//Dibujar tronco normal
@@ -74,24 +76,25 @@ void NormalBuilder::buildTronco() {
 
 void NormalBuilder::buildRamas() {
 	taux.pencolor(0,0,0);
-	taux.penup();
-	taux.turtleGo(5, -50);
-	taux.pendown();
+	/*taux.penup();
+	taux.turtleGo(15, -200);
+	taux.pendown();*/
 
+	int b = 30;
 		taux.right(90);
-		taux.forward(10);
+		taux.forward(b);
 		taux.right(90);
 		taux.penup();
-		taux.forward(10);
+		taux.forward(b);
 		taux.left(90);
 		taux.pendown();
-		taux.forward(10);
+		taux.forward(b);
 		taux.left(90);
 		taux.penup();
-		taux.forward(10);
+		taux.forward(b);
 		taux.right(90);
 		taux.pendown();
-		taux.forward(10);
+		taux.forward(b);
 		taux.right(90);
 		taux.penup();
 
@@ -106,10 +109,11 @@ void CherryBuilder::buildHojas() {
 	taux.pencolor(255, 188, 181);
 	taux.beginFill();
 	for (int j = 0; j <= 12; j++) {
-		taux.forwardFill(20);
+		taux.forwardFill(100);
 		taux.left(360 / 12);
 	}
 	taux.end();
+	taux.right(30);
 	treeP->setHojas("Hojas de cerezo");
 
 }
@@ -117,18 +121,25 @@ void CherryBuilder::buildHojas() {
 void CherryBuilder::buildTronco() {
 	taux.pencolor(99, 55, 44);
 	taux.penup();
-	taux.turtleGo(10, 0);
+	taux.left(90);
+	taux.forward(90);
+	taux.right(90);
 	taux.pendown();
 	taux.beginFill();
-	taux.forwardFill(5);
+	taux.forwardFill(25);
 	taux.right(90);
-	taux.forwardFill(30);
+	taux.forwardFill(90);
 	taux.right(90);
-	taux.forwardFill(10);
+	taux.forwardFill(50);
 	taux.right(90);
-	taux.forwardFill(30);
+	taux.forwardFill(90);
 	taux.right(90);
 	taux.end();
+	taux.penup();
+	taux.left(180);
+	taux.forward(25);
+	taux.right(180);
+	taux.pendown();
 	treeP->setTronco("Tronco de cerezo");
 	//Dibujar tronco normal
 }
@@ -136,23 +147,25 @@ void CherryBuilder::buildTronco() {
 void CherryBuilder::buildRamas() {
 	taux.pencolor(201, 125, 96);
 	taux.penup();
-	taux.turtleGo(13,0);
+	taux.left(180);
+	taux.forward(40);
+	taux.right(180);
 	taux.pendown();
-
+	int b = 20;
 	taux.right(90);
-	taux.forward(7);
+	taux.forward(b);
 	taux.right(90);
 	taux.penup();
-	taux.forward(7);
+	taux.forward(b);
 	taux.left(90);
 	taux.pendown();
-	taux.forward(7);
+	taux.forward(b);
 	taux.left(90);
 	taux.penup();
-	taux.forward(7);
+	taux.forward(b);
 	taux.right(90);
 	taux.pendown();
-	taux.forward(7);
+	taux.forward(b);
 	taux.right(90);
 	taux.penup();
 
@@ -161,12 +174,15 @@ void CherryBuilder::buildRamas() {
 	//Dibujar ramas normales
 }
 
-TreeProduct* Director::createTree(TreeBuilder* builder, turtle _t) {
-
+TreeProduct* Director::createTree(TreeBuilder* builder, turtle _t, float _x, float _y) {
+	_t.penup();
+	_t.turtleGo(_x, _y);
+	_t.pendown();
+	//builder->treeColor(_co);
 	builder->setTurtleB(_t);
 	builder->getPartsBuild();
-	builder->buildHojas();
 	builder->buildTronco();
+	builder->buildHojas();
 	builder->buildRamas();
 	return builder->getTreeProduct();
 }

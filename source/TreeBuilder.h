@@ -33,6 +33,7 @@ class TreeBuilder {
 protected:
 	TreeProduct* treeP;
 	turtle taux;
+	color _col;
 public:
 	virtual void getPartsBuild() = 0;
 	virtual void buildHojas() = 0;
@@ -41,11 +42,13 @@ public:
 
 	TreeProduct* getTreeProduct() { return treeP; }
 	void setTurtleB(turtle _t);
+	//void treeColor(color a) { _col = a; }
 	
 };
 
 class NormalBuilder : public TreeBuilder {
 public:
+	//NormalBuilder(); { _col._r = 121; _col._g = 180; _col._b = 115; }
 	void getPartsBuild();
 	void buildHojas();
 	void buildTronco();
@@ -64,6 +67,6 @@ class Director {
 protected:
 	TreeBuilder* builder;
 public:
-	TreeProduct* createTree(TreeBuilder* builder, turtle _tu);
+	TreeProduct* createTree(TreeBuilder* builder, turtle _tu, float _x, float _y);
 };
 #endif // !TREEBUILDER_H

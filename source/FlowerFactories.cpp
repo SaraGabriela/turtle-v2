@@ -7,26 +7,30 @@ Centro::Centro(string _forma) {
 };
 
 string Centro::getForma() { return forma; }
-void Centro::startPos(float _x, float _y) { x = _x; y = _y; }
 
 void CentroNormal::drawCentro(turtle & _tur) {
 	_tur.pencolor(233, 114, 76);
-	_tur.turtleGo(-2, -2);
 	_tur.beginFill();
 	for (int j = 0; j <= 12; j++) {
-		_tur.forwardFill(2);
+		_tur.forwardFill(7.5);
 		_tur.left(360 / 12);
 	}
 	_tur.end();
 }
 
 void CentroGirasol::drawCentro(turtle & _tur) {
-	_tur.pencolor(233, 114, 76);
-	_tur.turtleGo(-2, -2);
+	_tur.pencolor(109, 69, 35);
+	_tur.penup();
+	_tur.left(90);
+	_tur.forward(10);
+	_tur.left(90);
+	_tur.forward(20);
+	_tur.right(180);
+	_tur.pendown();
 	_tur.beginFill();
-	for (int j = 0; j <= 12; j++) {
-		_tur.forwardFill(2);
-		_tur.left(360 / 12);
+	for (int j = 0; j <= 40; j++) {
+		_tur.forwardFill(30);
+		_tur.left(150);
 	}
 	_tur.end();
 }
@@ -38,20 +42,19 @@ Petalo::Petalo(string _forma) {
 }
 
 string Petalo::getForm() { return forma; }
-void Petalo::startPos(float _x, float _y) { x = _x; y = _y; }
 
 void PetaloNormal::drawPetalo(turtle & _tur) {
 	_tur.pencolor(197, 40, 61);
 	_tur.beginFill();
 	for (int j = 0; j <= 6; j++) {
-		_tur.forwardFill(4);
+		_tur.forwardFill(15);
 		_tur.left(360 / 18);
 	}
 	_tur.end();
 	_tur.left(40);
 	_tur.beginFill();
 	for (int j = 0; j <= 6; j++) {
-		_tur.forwardFill(4);
+		_tur.forwardFill(15);
 		_tur.left(360 / 18);
 	}
 	_tur.end();
@@ -60,38 +63,40 @@ void PetaloNormal::drawPetalo(turtle & _tur) {
 void PetaloGirasol::drawPetalo(turtle & _tur) {
 	_tur.pencolor(255, 200, 87);
 	_tur.beginFill();
-	for (int j = 0; j <= 6; j++) {
-		_tur.forwardFill(4);
-		_tur.left(360 / 18);
+	for (int j = 0; j <= 8; j++) {
+		_tur.forwardFill(10);
+		_tur.left(360 / 40);
 	}
 	_tur.end();
-	_tur.left(40);
+	_tur.left(95);
 	_tur.beginFill();
-	for (int j = 0; j <= 6; j++) {
-		_tur.forwardFill(4);
-		_tur.left(360 / 18);
+	for (int j = 0; j <= 8; j++) {
+		_tur.forwardFill(10);
+		_tur.left(360 / 40);
 	}
 	_tur.end();
 }
 
 void CFlor::setCentro(Centro * _ce) { ce = _ce; }
 void CFlor::setPetalo(Petalo * _p) { p = _p; }
-void CFlor::FlorPos(float _xa, float _ya) {
-	xAr = _xa;
-	yAr = _ya;
-}
 
-void CFlor::printDetail(turtle & _tur) {
+void CFlor::printDetail(turtle & _tur, float _x, float _y) {
 	//cout << endl << "hoja de forma: " << h->getForma() << " y tronco " << Tr->getForm() << endl;
-	ce->startPos(xAr, yAr);
-	p->startPos(xAr, yAr);
 
+	_tur.penup();
+	_tur.turtleGo(_x, _y);
+	_tur.pendown();
 	for (int k = 0; k < 5; k++) {
 		p->drawPetalo(_tur);
 		_tur.left(180);
 	}
-
+	_tur.penup();
+	_tur.turtleGo(_x, _y);
+	_tur.right(90);
+	_tur.forward(15);
+	_tur.left(90);
+	_tur.pendown();
 	ce->drawCentro(_tur);
-	_tur.turtleGo(0, 0);
+//	_tur.turtleGo(0, 0);
 }
 

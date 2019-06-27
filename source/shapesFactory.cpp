@@ -23,13 +23,23 @@ turtleShapes::turtleShapes(turtle tur) {
 	aux = tur;
 }
 
-void turtleShapes::turtleTree(string st) { //Hacer metodos que incluyen color y pos
+void turtleShapes::turtleTree(string st, float _x, float _y) { //Hacer metodos que incluyen color y pos
 	shape * n = shapesFactory::createShape("tree");
+	n->setPosition(_x,_y);
 	n->draw(st,aux);
 }
 
-void turtleShapes::turtleFlower(string st) {
+/*
+void turtleShapes::turtleTree(string st, float _x, float _y, color _c) {
+	shape * n = shapesFactory::createShape("tree");
+	n->shapeColor(_c);
+	n->setPosition(_x, _y);
+	n->draw(st, aux);
+}*/
+
+void turtleShapes::turtleFlower(string st, float _x, float _y) {
 	shape * n = shapesFactory::createShape("flower");
+	n->setPosition(_x, _y);
 	n->draw(st, aux);
 }
 

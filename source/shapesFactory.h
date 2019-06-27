@@ -17,13 +17,14 @@ public:
 
 };
 
-class turtleShapes { //TERMINAR RECORRIDO PARA SABER COMO SE IMPLEMENTARÍA ESTA FUNCION. PI EN SA
+class turtleShapes { 
 protected:
 	turtle aux;
 public:
 	turtleShapes(turtle tur);
-	void turtleTree(string st);
-	void turtleFlower(string st);
+	void turtleTree(string st,float _x, float y);
+	//void turtleTree(string st, float _x, float _y, color _c);
+	void turtleFlower(string st, float _x, float _y);
 	void turtleSnow(string st);
 };
 #endif // !SHAPESFACTORY_H

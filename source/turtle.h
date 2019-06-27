@@ -11,8 +11,11 @@ Este codigo se asemeja a la tortuga de Python, implementado en c++.
 Antes de empezar es necesario incluir la clase turtle e instanciar nuestra tortuga.
 La tortuga empieza a dibujar desde la coordenada (0,0)
 */
+#ifndef TURTLE_H
+#define TURTLE_H
 
-#pragma once
+
+
 #include <Windows.h>
 #include <GL\glew.h>
 #include <GL\freeglut.h>
@@ -27,6 +30,28 @@ La tortuga empieza a dibujar desde la coordenada (0,0)
 * @detail  Definicion de la funciones usadas en la clase.
 */
 using namespace std;
+
+class color {
+protected:
+	float _r;
+	float _g;
+	float _b;
+public:
+	color() { _r = 0; _g = 0; _b = 0; }
+	color(float a, float b, float c) {
+		_r = a; _g = b; _b = c;
+	}
+	float getR() { return _r; }
+	float getG() { return _g; }
+	float getB() { return _b; }
+};
+
+class rojo : public color {
+	rojo() {
+		_r = 255; _g = 0; _b = 0;
+	}
+};
+
 class turtle
 {
 private:
@@ -61,9 +86,12 @@ public:
 	void pendown();
 	void turtleGo(double x1, double y1);
 	void pencolor(float _r, float _g, float _b);
+	void pencolor(color _c);
 	void beginFill();
 	void forwardFill(double dis);
 	void end();
 	double getPosx();
 	double getPosy();
 };
+
+#endif // !TURTLE_H

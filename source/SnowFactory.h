@@ -37,7 +37,7 @@ public:
 
 class NormalParticle : public Particle {
 public:
-	NormalParticle() :Particle(5.0){}
+	NormalParticle();
 };
 //Diferentes tipos de nieve segun color
 /*class ClearSnow : public Particle {

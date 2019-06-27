@@ -18,7 +18,6 @@ public:
 	Centro(string _forma);
 	string getForma();
 	virtual void drawCentro(turtle & _tur) = 0;
-	void startPos(float _x, float _y);
 };
 
 class CentroNormal : public Centro {
@@ -43,7 +42,6 @@ public:
 
 	string getForm();
 	virtual void drawPetalo(turtle & _tur) = 0;
-	void startPos(float _x, float _y);
 };
 
 
@@ -71,9 +69,7 @@ public:
 	void setCentro(Centro * _ce);
 	void setPetalo(Petalo * _p);
 
-	void FlorPos(float _xa, float _ya);
-
-	void printDetail(turtle & _tur);
+	void printDetail(turtle & _tur, float _x, float _y);
 
 };
 

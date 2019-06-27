@@ -8,8 +8,8 @@ class Flower :	public shape
 protected:
 	FlowerFactory * fl;
 public:
-	Flower();
-	~Flower();
+	Flower(){}
+	~Flower(){}
 	void draw(string type, turtle & _tx);
 };
 
