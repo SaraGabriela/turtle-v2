@@ -6,7 +6,7 @@ Código que simula la tortuga de Python haciendo uso de OpenGL. Permite realizar 
 
 La clase turtleShapes permite dibujar figuras en la ventana creada por la tortuga.
 
-![Se pueden dibujar arboles, flores y nieve](https://github.com/SaraGabriela/turtle-v2/tree/master/Images/screenshot.png)
+![Se pueden dibujar arboles, flores y nieve](https://github.com/SaraGabriela/turtle-v2/tree/master/Images/screenshot.PNG)
 
 ## ¿Cómo se usa?
 ### 1. Instalar Glut
