@@ -4,6 +4,10 @@ Turtle en C++
 ## Descripción
 Código que simula la tortuga de Python haciendo uso de OpenGL. Permite realizar gráficos simples por medio de un plano de coordenadas. Empieza a dibujar en (0,0).
 
+La clase turtleShapes permite dibujar figuras en la ventana creada por la tortuga.
+
+![Se pueden dibujar arboles, flores y nieve](https://github.com/SaraGabriela/turtle/tree/master/Images/screenshot.png)
+
 ## ¿Cómo se usa?
 ### 1. Instalar Glut
 Referencias para instalar GLUT al usar DevC++:

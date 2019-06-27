@@ -73,24 +73,73 @@ public:
 	*/
 	turtle();
 	~turtle();
-
+	/** Funcion necesaria para empezar a dibujar.
+   *Propiedades de la tortuga con la que dibujamos.
+	*/
 	void start();
-
+	/** Crea la ventana donde se dibujara la turtle
+	*Es necesaria para empezar a dibujar
+	*/
 	void setupWindow();
+	/** Crea la ventana donde se dibujara la turtle con valores personalizados
+	*  @param a es el ancho de la ventana
+	*  @param b es el alto de la ventana
+	*/
 	void setupWindow(int a, int b);
-
+	/** Avanzar una distancia determinada
+	*  @param dis es la distancia que la tortuga va a recorrer
+	*/
 	void forward(double dis);
+	/** Que la tortuga gire a la izquierda
+	*  @param angle es el angulo que girara hacia la izquierda
+	*/
 	void left(GLdouble angle);
+	/** Que la tortuga gire a la derecha
+	*  @param angle es el angulo que girara hacia la derecha
+	*/
 	void right(GLdouble angle);
+	/** Levanta el lapiz de dibujo
+	*Mientras el lapiz este arriba, la tortuga no va a dibujar
+	*/
 	void penup();
+	/** Baja el lapiz de dibujo
+	*La tortuga va a dibujar solo cuando el lapiz este abajo
+	*/
 	void pendown();
+	/** Ir a un punto en el plano
+	*  @param x1 es la coordenada del punto en x
+	*  @param y1 es la coordenada del punto en y
+	*/
 	void turtleGo(double x1, double y1);
+	/** Cambiar el color del lapiz en RGB. (Por ejemplo: 000 es negro)
+	*  @param _r es la cantidad de color rojo (de 0 a 255)
+	*  @param _g es la cantidad de color verde (de 0 a 255)
+	*  @param _b es la cantidad de color azul (de 0 a 255)
+	*/
 	void pencolor(float _r, float _g, float _b);
+	/** Cambiar el color del lapiz en RGB. (Por ejemplo: 000 es negro)
+	*  @param _c es un objeto de tipo color
+	*/
 	void pencolor(color _c);
+	/** Funcion que se debe colocar antes de empezar una figura con relleno (coloreado) 
+	*  Le sigue la funcion forwardFill() para empezar a dibujar
+	*/
 	void beginFill();
+	/** Avanzar una distancia determinada dibujando una linea. Finalmente las lineas se conectarán y se dibuja una forma con relleno.
+	*  @param dis es la distancia que la tortuga va a recorrer
+	*/
 	void forwardFill(double dis);
+	/** Funcion que determina que se terminó un dibujo
+	*  Se debe colocar al finalizar un dibujo con las funciones forward() o forwardFill()
+	*/
 	void end();
+	/** Retorna la posicion de la tortuga en x
+	*  
+	*/
 	double getPosx();
+	/** Retorna la posicion de la tortuga en y
+	*
+	*/
 	double getPosy();
 };
 

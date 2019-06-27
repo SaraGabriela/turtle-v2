@@ -1,4 +1,8 @@
-#pragma once
+#ifndef FLOWER_H
+#define FLOWER_H
+
+
+
 #include "shapes.h"
 #include "FlowerFactories.h"
 #include <string>
@@ -12,4 +16,4 @@ public:
 	~Flower(){}
 	void draw(string type, turtle & _tx);
 };
-
+#endif // !FLOWER_H
