@@ -42,18 +42,18 @@ public:
 	*  @param _x es la ubicacion en x donde se empieza a dibujar el arbol
 	*  @param _y es la ubicacion en y donde se empieza a dibujar el arbol
 	*/
-	void turtleTree(string st,float _x, float y);
+	void turtleTree(string st,float _x, float y, color* & coo);
 	//void turtleTree(string st, float _x, float _y, color _c);
 	/** Dibuja una flor en la pantalla
 	*  @param st es el tipo de flor a dibujar
 	*  @param _x es la ubicacion en x donde se empieza a dibujar la flor
 	*  @param _y es la ubicacion en y donde se empieza a dibujar la flor
 	*/
-	void turtleFlower(string st, float _x, float _y);
+	void turtleFlower(string st, float _x, float _y, color* & coo);
 	/** Dibuja nieve en la pantalla
 	*  @param st es el tipo de nieve a dibujar
 	*/
-	void turtleSnow(string st);
+	void turtleSnow(string st, color* & coo);
 };
 #endif // !SHAPESFACTORY_H
 

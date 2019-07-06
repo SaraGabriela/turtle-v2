@@ -21,8 +21,14 @@ void TreeBuilder::setTurtleB(turtle _t) { taux = _t; }
 void NormalBuilder::getPartsBuild() { treeP = new TreeProduct("Normal Tree"); }
 
 
-void NormalBuilder::buildHojas() {
-	taux.pencolor(121,180,115);
+void NormalBuilder::buildHojas(color* & ch) {
+	if (ch->getname() == "d") {
+		taux.pencolor(121, 180, 115);
+	}
+	else {
+		taux.pencolor(ch->getR(), ch->getG(), ch->getB());
+	}
+
 	float a = 250;
 	while (a / 2 > 1) {
 		taux.beginFill();
@@ -105,8 +111,13 @@ void NormalBuilder::buildRamas() {
 
 void CherryBuilder::getPartsBuild() { treeP = new TreeProduct("Cherry Blossom Tree"); }
 
-void CherryBuilder::buildHojas() {
-	taux.pencolor(255, 188, 181);
+void CherryBuilder::buildHojas(color* & ch) {
+	if (ch->getname() == "d") {
+		taux.pencolor(255, 188, 181);
+	}
+	else {
+		taux.pencolor(ch->getR(), ch->getG(), ch->getB());
+	}
 	taux.beginFill();
 	for (int j = 0; j <= 12; j++) {
 		taux.forwardFill(100);
@@ -174,7 +185,7 @@ void CherryBuilder::buildRamas() {
 	//Dibujar ramas normales
 }
 
-TreeProduct* Director::createTree(TreeBuilder* builder, turtle _t, float _x, float _y) {
+TreeProduct* Director::createTree(TreeBuilder* builder, turtle _t, float _x, float _y, color* & cou) {
 	_t.penup();
 	_t.turtleGo(_x, _y);
 	_t.pendown();
@@ -182,7 +193,7 @@ TreeProduct* Director::createTree(TreeBuilder* builder, turtle _t, float _x, flo
 	builder->setTurtleB(_t);
 	builder->getPartsBuild();
 	builder->buildTronco();
-	builder->buildHojas();
+	builder->buildHojas(cou);
 	builder->buildRamas();
 	return builder->getTreeProduct();
 }

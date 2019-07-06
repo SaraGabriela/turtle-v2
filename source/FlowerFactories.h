@@ -41,20 +41,20 @@ public:
 	Petalo(string _forma);
 
 	string getForm();
-	virtual void drawPetalo(turtle & _tur) = 0;
+	virtual void drawPetalo(turtle & _tur, color* & cp) = 0;
 };
 
 
 class PetaloNormal : public Petalo {
 public:
 	PetaloNormal() :Petalo("normal") {}
-	void drawPetalo(turtle & _tur);
+	void drawPetalo(turtle & _tur, color* & cp);
 };
 
 class PetaloGirasol : public Petalo {
 public:
 	PetaloGirasol() :Petalo("girasol") {}
-	void drawPetalo(turtle & _tur);
+	void drawPetalo(turtle & _tur, color* & cp);
 };
 
 class CFlor {
@@ -69,7 +69,7 @@ public:
 	void setCentro(Centro * _ce);
 	void setPetalo(Petalo * _p);
 
-	void printDetail(turtle & _tur, float _x, float _y);
+	void printDetail(turtle & _tur, float _x, float _y, color* & coo);
 
 };
 

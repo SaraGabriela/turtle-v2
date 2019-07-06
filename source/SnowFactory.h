@@ -65,7 +65,7 @@ private:
 	float x, y;
 public:
 	NormalSnow(Particle* _p);
-	void display(turtle & _tt);
+	void display(turtle & _tt, color* & cn);
 };
 
 #endif // !SNOWFACTORY_H

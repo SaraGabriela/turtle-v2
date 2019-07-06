@@ -73,7 +73,7 @@ public:
 	/** Construye las hojas del arbol
 	*  El tipo de hojas a construir depende del tipo de arbol que se desea
 	*/
-	virtual void buildHojas() = 0;
+	virtual void buildHojas(color* & ch) = 0;
 	/** Construye el tronco del arbol
 	*  El tipo de tronco a construir depende del tipo de arbol que se desea
 	*/
@@ -103,7 +103,7 @@ class NormalBuilder : public TreeBuilder {
 public:
 	//NormalBuilder(); { _col._r = 121; _col._g = 180; _col._b = 115; }
 	void getPartsBuild();
-	void buildHojas();
+	void buildHojas(color* & ch);
 	void buildTronco();
 	void buildRamas();
 };
@@ -115,7 +115,7 @@ public:
 class CherryBuilder : public TreeBuilder {
 public:
 	void getPartsBuild();
-	void buildHojas();
+	void buildHojas(color* & ch);
 	void buildTronco();
 	void buildRamas();
 };
@@ -135,6 +135,6 @@ public:
 	*  @param _x indica la posicion respecto a x donde empieza a dibujarse el arbol
 	*  @param _y indica la posicion respecto a y donde empieza a dibujarse el arbol
 	*/
-	TreeProduct* createTree(TreeBuilder* builder, turtle _tu, float _x, float _y);
+	TreeProduct* createTree(TreeBuilder* builder, turtle _tu, float _x, float _y,color* & cou);
 };
 #endif // !TREEBUILDER_H

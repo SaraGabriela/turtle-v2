@@ -6,13 +6,13 @@ void Snow::draw(string type, turtle & _tt) {
 	if (type == "normal") {
 		for (int i = 0; i < 50; i++) {
 			NormalSnow nor = NormalSnow(SnowFactory::getParticle("normal"));
-			nor.display(_tt);
+			nor.display(_tt,c);
 		}
 	}
 	else {
 		for (int i = 0; i < 100; i++) {
 			NormalSnow nor = NormalSnow(SnowFactory::getParticle("normal"));
-			nor.display(_tt);
+			nor.display(_tt,c);
 		}
 	}
 

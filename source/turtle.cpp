@@ -46,22 +46,6 @@ void turtle::setupWindow(int a, int b) {
 	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	string st = "'a' para dibujar un arbol | 'f' para dibujar una flor | 'n' para dibujar nieve";
-	int i, l;
-	l = st.length();
-	glRasterPos2f(-0.9, 0.9);
-	for (i = 0; i < l; i++)
-	{
-		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, st[i]);
-	}
-
-	st = "'c' para limpiar la pantalla";
-	l = st.length();
-	glRasterPos2f(-0.9, 0.85);
-	for (i = 0; i < l; i++)
-	{
-		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, st[i]);
-	}
 	glColor3f(0,0,0);
 }
 

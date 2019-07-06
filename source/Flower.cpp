@@ -17,5 +17,5 @@ void Flower::draw(string type, turtle & _tx) {
 
 	CFlor* f = fl->buildFlor();
 	
-	f->printDetail(_tx,x,y);
+	f->printDetail(_tx,x,y,c);
 }

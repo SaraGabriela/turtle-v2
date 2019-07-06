@@ -14,7 +14,7 @@ using namespace std;
 class shape {
 protected:
 	float x, y;
-//	color c;
+	color* c;
 public:
 	/** Dibujar la forma seleccionada. Funciona de manera diferente para cada forma.
 	*  @param t es una cadena que indica el tipo de figura
@@ -27,6 +27,7 @@ public:
 	*/
 	void setPosition(float _x = 0, float _y = 0);
 //	void shapeColor(color _c) { c = _c; }
+	void setColor(color* & cc);
 };
 
 

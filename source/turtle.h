@@ -33,6 +33,7 @@ using namespace std;
 
 class color {
 protected:
+	string name;
 	float _r;
 	float _g;
 	float _b;
@@ -41,16 +42,31 @@ public:
 	color(float a, float b, float c) {
 		_r = a; _g = b; _b = c;
 	}
+	string getname() { return name; }
 	float getR() { return _r; }
 	float getG() { return _g; }
 	float getB() { return _b; }
 };
 
 class rojo : public color {
+public:
 	rojo() {
-		_r = 255; _g = 0; _b = 0;
+		_r = 255; _g = 0; _b = 0; name = "r";
 	}
 };
+class azul : public color {
+public:
+	azul() {
+		_r = 0; _g = 0; _b = 255; name = "b";
+	}
+};
+class def : public color {
+public:
+	def() {
+		_r = 5000; _g = 50000; _b = 50000; name = "d";
+	}
+};
+
 
 class turtle
 {

@@ -35,9 +35,14 @@ NormalSnow::NormalSnow(Particle* _p) {
 	y = rand() % 800;
 }
 
-void NormalSnow::display(turtle & _tt){
+void NormalSnow::display(turtle & _tt, color* & cn){
 	float f = par->getSize();
-	_tt.pencolor(159, 202, 242);
+	if (cn->getname() == "d") {
+		_tt.pencolor(159, 202, 242);
+	}
+	else {
+		_tt.pencolor(cn->getR(), cn->getG(), cn->getB());
+	}
 	_tt.penup();
 	_tt.turtleGo(x, y);
 	_tt.pendown();
